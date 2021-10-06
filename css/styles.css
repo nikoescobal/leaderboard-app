@@ -26,6 +26,21 @@
   @apply mx-40;
 }
 
+.scores-border {
+  @apply border-2;
+  @apply border-white;
+  @apply flex-col;
+  @apply p-3;
+}
+
+.container {
+  @apply text-white;
+  @apply space-y-6;
+  @apply flex;
+  @apply flex-col;
+  @apply w-96;
+}
+
 .recent-scores-container {
   @apply flex;
   @apply text-center;

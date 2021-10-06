@@ -3,3 +3,46 @@
 @tailwind components;
 @tailwind utilities;
 /* stylelint-enable */
+
+.heading-1 {
+  @apply text-white;
+  @apply font-mono;
+  @apply text-7xl;
+  @apply font-bold;
+  @apply py-16;
+  @apply px-12;
+}
+
+.heading-2 {
+  @apply text-white;
+  @apply font-mono;
+  @apply text-3xl;
+  @apply font-bold;
+}
+
+.section-container {
+  @apply flex;
+  @apply justify-around;
+  @apply mx-40;
+}
+
+.recent-scores-container {
+  @apply flex;
+  @apply text-center;
+  @apply w-96;
+  @apply justify-between;
+  @apply items-baseline;
+}
+
+.refresh-button {
+  @apply text-white;
+  @apply bg-blue-500;
+  @apply text-base;
+  @apply font-bold;
+  @apply font-mono;
+  @apply px-6;
+  @apply shadow;
+  @apply drop-shadow-xl;
+  @apply py-4;
+  @apply rounded;
+}

@@ -12,7 +12,10 @@
     "dev": "npx webpack -w --config webpack.config.js --mode development",
     "prod": "npx webpack -w --config webpack.config.js --env production",
     "deploy": "gh-pages -d dist",
-    "lint": "npx eslint . && npx stylelint **/*.{css,scss} && npx hint ."
+    "lint": "concurrently \"npm run eslint\" \"npm run stylelint\" \"npm run hint\"",
+    "eslint": "npx eslint . --fix",
+    "stylelint": "npx stylelint **/*.{css,scss}",
+    "hint": "npx hint ."
   },
   "repository": {
     "type": "git",

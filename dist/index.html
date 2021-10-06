@@ -5,30 +5,26 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JS Template</title>
+  <title>Leaderboard App</title>
   <link rel="stylesheet" href="../src/styles.css" />
 </head>
 
-<body class="mx-auto h-full w-full bg-blue-400">
+<body class=" bg-blue-400">
   <h1 class="
-        p-24
-        text-7xl
-        font-bold font-mono
-        text-white
+        heading-1
       ">
     Leaderboard
   </h1>
-  <section class="flex justify-between mx-40">
-    <div class=" w-96 flex items-center justify-between text-center">
-      <h2 class="text-white text-3xl font-bold font-mono">Recent scores</h2>
-      <button class="text-white bg-blue-500 text-md font-bold font-mono px-6 shadow drop-shadow-xl py-4 rounded"
-        type="submit">Refresh</button>
+  <section class="section-container">
+    <div class="recent-scores-container">
+      <h2 class="heading-2">Recent scores</h2>
+      <button class="refresh-button" type="submit">Refresh</button>
     </div>
     <div class="w-full max-w-xs">
       <form
-        class="bg-white shadow-md flex-col items-center justify-between text-center rounded w-96 px-8 pt-6 pb-8 mb-4">
+        class="bg-white shadow-md flex-col items-center justify-between text-center rounded w-full px-8 pt-6 pb-8 mb-4">
         <div class="mb-4">
-          <h2 class="text-white text-3xl font-bold font-mono">Add your Score</h2>
+          <h2 class="heading-2">Add your Score</h2>
           <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
           </label>
           <input
@@ -43,15 +39,13 @@
             id="password" type="password" placeholder="Your score">
 
         </div>
-        <div class="flex items-center justify-between">
+        <div class="flex justify-end items-center">
           <button
-            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            class="bg-blue-500 hover:bg-blue-700 shadow text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             type="button">
-            Sign In
+            Submit
           </button>
-          <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="#">
-            Forgot Password?
-          </a>
+
         </div>
       </form>
 

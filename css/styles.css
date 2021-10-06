@@ -2,7 +2,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-/* stylelint-enable */
 
 .heading-1 {
   @apply text-white;
@@ -61,3 +60,4 @@
   @apply py-4;
   @apply rounded;
 }
+/* stylelint-enable */

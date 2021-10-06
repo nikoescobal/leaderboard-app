@@ -619,7 +619,6 @@ video {
 	--tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
-/* stylelint-enable */
 
 .heading-1 {
 	--tw-text-opacity: 1;
@@ -702,12 +701,11 @@ video {
 	padding-bottom: 1rem;
 	border-radius: 0.25rem;
 }
-
+/* stylelint-enable */
 .hover\:bg-blue-700:hover {
 	--tw-bg-opacity: 1;
 	background-color: rgba(29, 78, 216, var(--tw-bg-opacity));
 }
-
 .focus\:outline-none:focus {
 	outline: 2px solid transparent;
 	outline-offset: 2px;

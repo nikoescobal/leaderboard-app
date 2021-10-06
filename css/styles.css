@@ -3,10 +3,17 @@
 @tailwind components;
 @tailwind utilities;
 
+#username,
+#score {
+  @apply text-xs;
+  @apply lg:text-base;
+}
+
 .heading-1 {
   @apply text-white;
   @apply font-mono;
-  @apply text-7xl;
+  @apply lg:text-7xl;
+  @apply text-4xl;
   @apply font-bold;
   @apply py-12;
   @apply px-12;
@@ -14,18 +21,15 @@
 }
 
 .heading-2 {
-  @apply text-white;
-  @apply font-mono;
-  @apply text-3xl;
-  @apply font-bold;
-  @apply py-3;
+  @apply text-white items-center font-mono text-sm text-left md:text-2xl lg:text-3xl font-bold py-3;
+}
+
+.heading-3 {
+  @apply text-white items-center font-mono text-sm md:text-base lg:text-3xl font-bold py-3;
 }
 
 .section-container {
-  @apply flex;
-  @apply justify-around;
-  @apply mx-40;
-  @apply py-6;
+  @apply flex justify-around py-6 lg:mx-44 mx-28;
 }
 
 .scores-border {
@@ -36,32 +40,28 @@
 }
 
 .container {
-  @apply text-white;
-  @apply space-y-6;
-  @apply flex;
-  @apply flex-col;
-  @apply w-96;
+  @apply text-white space-y-6 flex flex-col w-48 md:w-60 lg:w-96;
 }
 
 .recent-scores-container {
   @apply flex;
   @apply text-center;
-  @apply w-96;
+  @apply lg:w-96 md:w-60 w-48;
   @apply justify-between;
   @apply items-baseline;
 }
 
 .button-style {
-  @apply text-white;
+  @apply text-white text-xs md:text-sm lg:text-base;
   @apply bg-blue-800;
   @apply hover:bg-blue-300;
   @apply text-base;
   @apply font-bold;
   @apply font-mono;
-  @apply px-4;
+  @apply lg:px-4 md:px-3 px-2;
   @apply shadow;
   @apply drop-shadow-xl;
-  @apply py-2;
+  @apply lg:py-2 py-1;
   @apply rounded;
   @apply focus:outline-none;
 }

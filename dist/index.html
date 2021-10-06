@@ -9,19 +9,56 @@
   <link rel="stylesheet" href="../src/styles.css" />
 </head>
 
-<body class="mx-auto h-full w-full bg-pink-700">
+<body class="mx-auto h-full w-full bg-blue-400">
   <h1 class="
         p-24
-        text-center
-        justify-center
-        items-center
-        text-4xl
+        text-7xl
         font-bold font-mono
         text-white
       ">
-    This template is pre-configured with Tailwind CSS and contains the basic
-    structure for a project requiring vanilla JS.
+    Leaderboard
   </h1>
+  <section class="flex justify-between mx-40">
+    <div class=" w-96 flex items-center justify-between text-center">
+      <h2 class="text-white text-3xl font-bold font-mono">Recent scores</h2>
+      <button class="text-white bg-blue-500 text-md font-bold font-mono px-6 shadow drop-shadow-xl py-4 rounded"
+        type="submit">Refresh</button>
+    </div>
+    <div class="w-full max-w-xs">
+      <form
+        class="bg-white shadow-md flex-col items-center justify-between text-center rounded w-96 px-8 pt-6 pb-8 mb-4">
+        <div class="mb-4">
+          <h2 class="text-white text-3xl font-bold font-mono">Add your Score</h2>
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+          </label>
+          <input
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="username" type="text" placeholder="Your name">
+        </div>
+        <div class="mb-6">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+          </label>
+          <input
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+            id="password" type="password" placeholder="Your score">
+
+        </div>
+        <div class="flex items-center justify-between">
+          <button
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            type="button">
+            Sign In
+          </button>
+          <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="#">
+            Forgot Password?
+          </a>
+        </div>
+      </form>
+
+    </div>
+
+  </section>
+
 </body>
 
 </html>

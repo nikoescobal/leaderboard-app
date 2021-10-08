@@ -1,3 +1,4 @@
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require('path');
 
 module.exports = {
@@ -7,30 +8,36 @@ module.exports = {
     filename: 'main.js',
     path: path.resolve(__dirname, 'dist'),
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: 'leaderboard-app',
+      template: './src/index.html',
+    }),
+  ],
   module: {
     rules: [{
-      test: /\.css$/,
-      use: [
-        'style-loader',
-        {
-          loader: 'css-loader',
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1,
+            },
+          },
+          'postcss-loader',
+        ],
+      },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif|mp4)$/i,
+        use: {
+          loader: 'file-loader',
           options: {
-            importLoaders: 1,
+            name: '[name].[hash].[ext]',
+            outputPath: 'imgs',
           },
         },
-        'postcss-loader',
-      ],
-    },
-    {
-      test: /\.(png|svg|jpg|jpeg|gif|mp4)$/i,
-      use: {
-        loader: 'file-loader',
-        options: {
-          name: '[name].[hash].[ext]',
-          outputPath: 'imgs',
-        },
       },
-    },
     ],
   },
 };

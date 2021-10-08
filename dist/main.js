@@ -15,7 +15,7 @@
   \**********************/
 /***/ (() => {
 
-eval("\n\n//# sourceURL=webpack://js-template/./src/index.js?");
+eval("const fetchGame = async (data) => {\n  const res = await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/', {\n    method: 'post',\n    headers: {\n      'Accept': 'application/json, text/plain, */*',\n      'Content-Type': 'application/json'\n    },\n    // mode: 'cors',\n    body: JSON.stringify({\n      name: 'Kill the enemy'\n    })\n  }).then(res => res.json())\n  const dataString = res.result.split(' ')[3];\n\n\n  await fetch(`https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${dataString}/scores`, {\n    method: 'post',\n    headers: {\n      'Accept': 'application/json, text/plain, */*',\n      'Content-Type': 'application/json'\n    },\n    // mode: 'cors',\n    body: JSON.stringify(data)\n  }).then(res => res.json()).then(dat => console.log(dat))\n\n}\n\nfetchGame(data)\n\n//# sourceURL=webpack://js-template/./src/index.js?");
 
 /***/ })
 

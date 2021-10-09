@@ -1,69 +1,63 @@
-<head><script defer src="main.js"></script></head>Html Webpack Plugin:
-<pre>
-  Error: Child compilation failed:
-  Module not found: Error: Can't resolve '/Users/niko/Desktop/Microverse/leaderb  oard-app/node_modules/html-webpack-plugin/lib/loader.js' in '/Users/niko/Deskt  op/Microverse/leaderboard-app'
-  ModuleNotFoundError: Module not found: Error: Can't resolve '/Users/niko/Deskt  op/Microverse/leaderboard-app/node_modules/html-webpack-plugin/lib/loader.js'   in '/Users/niko/Desktop/Microverse/leaderboard-app'
-      at /Users/niko/Desktop/Microverse/leaderboard-app/node_modules/webpack/lib  /Compilation.js:1935:28
-      at /Users/niko/Desktop/Microverse/leaderboard-app/node_modules/webpack/lib  /NormalModuleFactory.js:795:13
-      at eval (eval at create (/Users/niko/Desktop/Microverse/leaderboard-app/no  de_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:10:1)
-      at /Users/niko/Desktop/Microverse/leaderboard-app/node_modules/webpack/lib  /NormalModuleFactory.js:275:22
-      at eval (eval at create (/Users/niko/Desktop/Microverse/leaderboard-app/no  de_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:9:1)
-      at /Users/niko/Desktop/Microverse/leaderboard-app/node_modules/webpack/lib  /NormalModuleFactory.js:431:22
-      at /Users/niko/Desktop/Microverse/leaderboard-app/node_modules/webpack/lib  /NormalModuleFactory.js:124:11
-      at /Users/niko/Desktop/Microverse/leaderboard-app/node_modules/webpack/lib  /NormalModuleFactory.js:632:23
-      at /Users/niko/Desktop/Microverse/leaderboard-app/node_modules/neo-async/a  sync.js:2830:7
-      at done (/Users/niko/Desktop/Microverse/leaderboard-app/node_modules/neo-a  sync/async.js:2925:13)
-  
-  - Compilation.js:1935 
-    [leaderboard-app]/[webpack]/lib/Compilation.js:1935:28
-  
-  - NormalModuleFactory.js:795 
-    [leaderboard-app]/[webpack]/lib/NormalModuleFactory.js:795:13
-  
-  
-  - NormalModuleFactory.js:275 
-    [leaderboard-app]/[webpack]/lib/NormalModuleFactory.js:275:22
-  
-  
-  - NormalModuleFactory.js:431 
-    [leaderboard-app]/[webpack]/lib/NormalModuleFactory.js:431:22
-  
-  - NormalModuleFactory.js:124 
-    [leaderboard-app]/[webpack]/lib/NormalModuleFactory.js:124:11
-  
-  - NormalModuleFactory.js:632 
-    [leaderboard-app]/[webpack]/lib/NormalModuleFactory.js:632:23
-  
-  - async.js:2830 
-    [leaderboard-app]/[neo-async]/async.js:2830:7
-  
-  - async.js:2925 done
-    [leaderboard-app]/[neo-async]/async.js:2925:13
-  
-  - child-compiler.js:169 
-    [leaderboard-app]/[html-webpack-plugin]/lib/child-compiler.js:169:18
-  
-  - Compiler.js:557 
-    [leaderboard-app]/[webpack]/lib/Compiler.js:557:11
-  
-  - Compiler.js:1127 
-    [leaderboard-app]/[webpack]/lib/Compiler.js:1127:17
-  
-  
-  - Hook.js:18 Hook.CALL_ASYNC_DELEGATE [as _callAsync]
-    [leaderboard-app]/[tapable]/lib/Hook.js:18:14
-  
-  - Compiler.js:1123 
-    [leaderboard-app]/[webpack]/lib/Compiler.js:1123:33
-  
-  - Compilation.js:2703 finalCallback
-    [leaderboard-app]/[webpack]/lib/Compilation.js:2703:11
-  
-  - Compilation.js:3004 
-    [leaderboard-app]/[webpack]/lib/Compilation.js:3004:11
-  
-  
-  - Hook.js:18 Hook.CALL_ASYNC_DELEGATE [as _callAsync]
-    [leaderboard-app]/[tapable]/lib/Hook.js:18:14
-  
-</pre>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Leaderboard App</title>
+  <link rel="stylesheet" href="../src/styles.css" />
+<script defer src="main.js"></script></head>
+
+<body class=" bg-blue-400">
+  <h1 class="
+        heading-1
+      ">
+    Leaderboard
+  </h1>
+  <section class="section-container">
+    <div class="container">
+      <div class="recent-scores-container">
+        <h3 class="heading-2">Recent scores</h3>
+        <button id="refresh" class="button-style" type="submit">
+          <span class="text-xs md:text-sm lg:text-base"> Refresh</span>
+        </button>
+      </div>
+      <div id="scoreboard" class="scores-border">
+      </div>
+    </div>
+
+    <div class="w-full max-w-xs space-y-3 ">
+      <form class="flex-col items-center justify-between text-center space-y-6 rounded w-full px-8 pb-8 mb-6">
+        <div class="mb-4">
+          <h2 class="heading-2 mb-6">Add your Score</h2>
+          <label class="block text-gray-700 font-bold mb-2" for="username">
+          </label>
+          <input
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="username" type="text" placeholder="Your name">
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700 font-bold mb-2" for="score">
+          </label>
+          <input
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-1 leading-tight focus:outline-none focus:shadow-outline"
+            id="score" type="text" placeholder="Your score">
+
+        </div>
+        <div class="flex justify-end items-center">
+          <button id="submit" class="button-style" type="button">
+            <span class="text-xs md:text-sm lg:text-base"> Submit</span>
+
+          </button>
+
+        </div>
+      </form>
+
+    </div>
+
+  </section>
+  <script src="index.js"></script>
+</body>
+
+</html>

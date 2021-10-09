@@ -1,8 +1,7 @@
-console.log(process.env.NODE_ENV);
 module.exports = {
   mode: 'jit',
   purge: [
-    './dist/**/*.html'
+    './dist/**/*.html',
   ],
   darkMode: false, // or 'media' or 'class'
   theme: {
@@ -12,4 +11,4 @@ module.exports = {
     extend: {},
   },
   plugins: [],
-}
+};

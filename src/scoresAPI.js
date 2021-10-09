@@ -27,20 +27,14 @@ export const postScore = async (name, score) => {
       "user": name,
       "score": score
     })
-  }).then(res => res.json()).then(data => console.log(data))
+  }).then(res => res.json()).then(data => data)
 
 
 }
 
 export const getScores = async () => {
-  await fetch(('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/Tv1zYAf6WtGRuAGhGsuk/scores'), {
-    method: 'get',
-    headers: {
-      'Accept': 'application/json, text/plain, */*',
-      'Content-Type': 'application/json'
-    },
-  }).then(res => res.json()).then(data => console.log(data))
-}
+  const response = await fetch(`https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/Tv1zYAf6WtGRuAGhGsuk/scores`);
+  const data = await response.json();
+  return data;
 
-getScores();
-// postScore();
+}

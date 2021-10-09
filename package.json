@@ -14,7 +14,7 @@
     "deploy": "gh-pages -d dist",
     "lint": "concurrently \"npm run eslint\" \"npm run stylelint\" \"npm run hint\"",
     "eslint": "npx eslint . --fix",
-    "stylelint": "npx stylelint **/*.css",
+    "stylelint": "npx stylelint **/*.{css,scss}",
     "hint": "npx hint ."
   },
   "repository": {

@@ -2,11 +2,11 @@ import {
   getScores,
 } from './scoresAPI.js';
 
-function clearScores(parentContainer) {
+const clearScores = (parentContainer) => {
   parentContainer.querySelectorAll('*').forEach((child) => child.remove());
 }
 
-function displayScores(data, parentContainer) {
+const displayScores = (data, parentContainer) => {
   let score = '';
   data.forEach((el) => {
     score += `<p>${el.user}: ${el.score}</p>`;
@@ -15,7 +15,7 @@ function displayScores(data, parentContainer) {
   parentContainer.insertAdjacentHTML('afterbegin', score);
 }
 
-export default async function refreshScores() {
+export default async const refreshScores = () => {
   const scoreBoard = document.getElementById('scoreboard');
   clearScores(scoreBoard);
   let scores = await getScores();

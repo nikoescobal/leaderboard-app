@@ -1,3 +1,4 @@
+/* stylelint-disable */
 module.exports = (ctx) => ({
   plugins: {
     tailwindcss: {},

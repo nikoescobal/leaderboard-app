@@ -10,13 +10,23 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/helpers.js":
+/*!************************!*\
+  !*** ./src/helpers.js ***!
+  \************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ refreshScores)\n/* harmony export */ });\n/* harmony import */ var _scoresAPI_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./scoresAPI.js */ \"./src/scoresAPI.js\");\n\n\nfunction clearScores(parentContainer) {\n  parentContainer.querySelectorAll(\"*\").forEach(child => child.remove());\n}\n\nfunction displayScores(data, parentContainer) {\n  let score = '';\n  data.map((el) => {\n    score += `<p>${el['user']}: ${el['score']}</p>`\n  })\n\n  parentContainer.insertAdjacentHTML('afterbegin', score);\n}\n\nasync function refreshScores() {\n  const scoreBoard = document.getElementById('scoreboard');\n  clearScores(scoreBoard)\n  let scores = await (0,_scoresAPI_js__WEBPACK_IMPORTED_MODULE_0__.getScores)()\n  scores = scores['result'].sort((a, b) => {\n    return a.score - b.score;\n  })\n  scores = scores.slice(0, 10);\n  console.log(typeof (scores));\n\n  displayScores(scores, scoreBoard);\n}\n\n//# sourceURL=webpack://js-template/./src/helpers.js?");
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _scoresAPI__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./scoresAPI */ \"./src/scoresAPI.js\");\n\n\nconst scoreBoard = document.getElementById('scoreboard');\n\nfunction clearScores() {\n  scoreBoard.querySelectorAll(\"*\").forEach(child => child.remove());\n}\n\nfunction displayScores(data, parentContainer) {\n  let score = '';\n  data.sort(function (a, b) {\n    return a.score - b.score;\n  });\n  data.map((el) => {\n    score += `<p>${el['user']}: ${el['score']}</p>`\n  })\n\n  // for (let i = 0; i < data.length; i++) {\n  //   score += `<p>${data[i]['user']}: ${data[i]['score']}</p>`\n  // }\n  parentContainer.insertAdjacentHTML('afterbegin', score);\n}\n\ndocument.getElementById('refresh').addEventListener('click', async () => {\n  clearScores()\n  let scores = await (0,_scoresAPI__WEBPACK_IMPORTED_MODULE_0__.getScores)()\n  scores = scores['result']\n  for (let i = 0; i < scores.length; i++) {\n    // console.log(scores[i]['user']);\n  }\n  displayScores(scores, scoreBoard);\n})\n\n//# sourceURL=webpack://js-template/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _scoresAPI_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./scoresAPI.js */ \"./src/scoresAPI.js\");\n/* harmony import */ var _helpers_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./helpers.js */ \"./src/helpers.js\");\n\n\n\nconst username = document.getElementById('username')\nconst score = document.getElementById('score')\nconst submit = document.getElementById('submit')\n\nwindow.onload = _helpers_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"];\n\ndocument.getElementById('refresh').addEventListener('click', async () => {\n  (0,_helpers_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"])();\n})\n\nsubmit.addEventListener('click', async () => {\n  await (0,_scoresAPI_js__WEBPACK_IMPORTED_MODULE_0__.postScore)(username.value, score.value)\n  ;(0,_helpers_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"])();\n})\n\n//# sourceURL=webpack://js-template/./src/index.js?");
 
 /***/ }),
 
@@ -26,7 +36,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _sco
   \**************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"postScore\": () => (/* binding */ postScore),\n/* harmony export */   \"getScores\": () => (/* binding */ getScores)\n/* harmony export */ });\n// const postGame = async () => {\n//   const res = await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/', {\n//     method: 'post',\n//     headers: {\n//       'Accept': 'application/json, text/plain, */*',\n//       'Content-Type': 'application/json'\n//     },\n//     // mode: 'cors',\n//     body: JSON.stringify({\n//       name: 'Kill the enemy'\n//     })\n//   }).then(res => console.log(res.json()))\n//   const dataString = res.result.split(' ')[3];\n\n// }\n\n// postGame()\n\nconst postScore = async (name, score) => {\n  await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/Tv1zYAf6WtGRuAGhGsuk/scores', {\n    method: 'post',\n    headers: {\n      'Accept': 'application/json, text/plain, */*',\n      'Content-Type': 'application/json'\n    },\n    body: JSON.stringify({\n      \"user\": name,\n      \"score\": score\n    })\n  }).then(res => res.json()).then(data => data)\n\n\n}\n\nconst getScores = async () => {\n  const response = await fetch(`https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/Tv1zYAf6WtGRuAGhGsuk/scores`);\n  const data = await response.json();\n  return data;\n\n}\n\n//# sourceURL=webpack://js-template/./src/scoresAPI.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"postScore\": () => (/* binding */ postScore),\n/* harmony export */   \"getScores\": () => (/* binding */ getScores)\n/* harmony export */ });\nconst postScore = async (name, score) => {\n  await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/Tv1zYAf6WtGRuAGhGsuk/scores', {\n    method: 'post',\n    headers: {\n      'Accept': 'application/json, text/plain, */*',\n      'Content-Type': 'application/json'\n    },\n    body: JSON.stringify({\n      \"user\": name,\n      \"score\": score\n    })\n  }).then(res => res.json()).then(data => data)\n\n\n}\n\nconst getScores = async () => {\n  const response = await fetch(`https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/Tv1zYAf6WtGRuAGhGsuk/scores`);\n  const data = await response.json();\n  return data;\n\n}\n\n//# sourceURL=webpack://js-template/./src/scoresAPI.js?");
 
 /***/ })
 

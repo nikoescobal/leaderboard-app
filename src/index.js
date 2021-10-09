@@ -1,35 +1,19 @@
 import {
-  postScore,
-  getScores
-} from "./scoresAPI";
+  postScore
+} from "./scoresAPI.js";
+import refreshScores from "./helpers.js";
 
-const scoreBoard = document.getElementById('scoreboard');
+const username = document.getElementById('username')
+const score = document.getElementById('score')
+const submit = document.getElementById('submit')
 
-function clearScores() {
-  scoreBoard.querySelectorAll("*").forEach(child => child.remove());
-}
-
-function displayScores(data, parentContainer) {
-  let score = '';
-  data.sort(function (a, b) {
-    return a.score - b.score;
-  });
-  data.map((el) => {
-    score += `<p>${el['user']}: ${el['score']}</p>`
-  })
-
-  // for (let i = 0; i < data.length; i++) {
-  //   score += `<p>${data[i]['user']}: ${data[i]['score']}</p>`
-  // }
-  parentContainer.insertAdjacentHTML('afterbegin', score);
-}
+window.onload = refreshScores;
 
 document.getElementById('refresh').addEventListener('click', async () => {
-  clearScores()
-  let scores = await getScores()
-  scores = scores['result']
-  for (let i = 0; i < scores.length; i++) {
-    // console.log(scores[i]['user']);
-  }
-  displayScores(scores, scoreBoard);
+  refreshScores();
+})
+
+submit.addEventListener('click', async () => {
+  await postScore(username.value, score.value)
+  refreshScores();
 })

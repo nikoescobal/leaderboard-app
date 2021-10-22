@@ -1,4 +1,4 @@
-import {
+import run {
   postScore,
 } from './scoresAPI.js';
 import refreshScores from './helpers.js';
